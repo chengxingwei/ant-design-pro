@@ -137,6 +137,19 @@ export default {
           authority: ['admin', 'user'],
           routes: [
             {
+              path: '/userinfo',
+              icon: 'table',
+              name: 'system',
+              routes: [
+                {
+                  name: 'user-list',
+                  icon: 'smile',
+                  path: '/userinfo/list',
+                  component: './userinfo/list',
+                },
+              ],
+            },
+            {
               path: '/dashboard',
               name: 'dashboard',
               icon: 'dashboard',

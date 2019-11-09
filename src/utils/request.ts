@@ -50,5 +50,30 @@ const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
 });
+request.interceptors.request.use(async (url, options) => {
+
+  let c_token  = localStorage.getItem("access_token");
+  if (c_token) {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + c_token,
+    };
+    return (
+      {
+        url: url,
+        options: { ...options, headers: headers },
+      }
+    );
+  } else {
+    return (
+      {
+        url: url,
+        options: { ...options },
+      }
+    );
+  }
+
+})
 
 export default request;

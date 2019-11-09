@@ -23,7 +23,7 @@ interface LoginState {
   autoLogin: boolean;
 }
 export interface FormDataType {
-  userName: string;
+  username: string;
   password: string;
   mobile: string;
   captcha: string;
@@ -126,7 +126,7 @@ class Login extends Component<
                 formatMessage({ id: 'user-login.login.message-invalid-credentials' }),
               )}
             <UserName
-              name="userName"
+              name="username"
               placeholder={`${formatMessage({ id: 'user-login.login.userName' })}: admin or user`}
               rules={[
                 {

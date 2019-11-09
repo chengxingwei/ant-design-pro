@@ -2,9 +2,9 @@ import request from '@/utils/request';
 import { FormDataType } from './index';
 
 export async function fakeAccountLogin(params: FormDataType) {
-  return request('/api/login/account', {
+  return request('http://localhost:9999/security/oauth/token?client_id=client&grant_type=password&username=' + params.username + '&password=' + params.password + '&client_secret=123456', {
     method: 'POST',
-    data: params,
+    data: {},
   });
 }
 
