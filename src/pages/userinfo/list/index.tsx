@@ -111,7 +111,13 @@ class TableList extends Component<TableListProps, TableListState> {
     {
       title: '状态',
       dataIndex: 'status',
-      render: (val) => `${val} 万`,
+      render: (val) => {
+        if (`${val}` === "1") {
+          return "正常";
+        }else {
+          return "禁用";
+        }
+      },
     },
     {
       title: '操作',
@@ -248,13 +254,11 @@ class TableList extends Component<TableListProps, TableListState> {
     });
   };
 
-  handleAdd = (fields: { desc: any }) => {
+  handleAdd = (fields: { status: 1 }) => {
     const { dispatch } = this.props;
     dispatch({
       type: 'listTableList/add',
-      payload: {
-        desc: fields.desc,
-      },
+      payload: fields,
     });
 
     message.success('添加成功');

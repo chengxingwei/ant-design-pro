@@ -7,6 +7,6 @@ export function getPageQuery() {
 export function setAuthority(response: any) {
   const authority = 'admin';
   const proAuthority = typeof authority === 'string' ? [authority] : authority;
-  localStorage.setItem('access_token', response.access_token);
+  localStorage.setItem('access_token', response.accessToken);
   return localStorage.setItem('antd-pro-authority', JSON.stringify(proAuthority));
 }
